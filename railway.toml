@@ -1,0 +1,28 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+healthcheckPath = "/alive"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+[[services]]
+name = "bitwarden"
+
+[services.variables]
+BW_ADMIN_TOKEN = "${{secrets.BW_ADMIN_TOKEN}}"
+BW_INSTALLATION_ID = "${{secrets.BW_INSTALLATION_ID}}"
+BW_INSTALLATION_KEY = "${{secrets.BW_INSTALLATION_KEY}}"
+
+BW_MAIL_SMTP_HOST = "${{secrets.BW_MAIL_SMTP_HOST}}"
+BW_MAIL_SMTP_PORT = "587"
+BW_MAIL_SMTP_SSL = "true"
+BW_MAIL_SMTP_USERNAME = "${{secrets.BW_MAIL_SMTP_USERNAME}}"
+BW_MAIL_SMTP_PASSWORD = "${{secrets.BW_MAIL_SMTP_PASSWORD}}"
+BW_MAIL_FROM = "${{secrets.BW_MAIL_FROM}}"
+
+BW_PORT = "8080"
+BW_DISABLE_ADMIN = "false"
+BW_DB_PROVIDER = "sqlite"
+BW_ENABLE_SSL = "false"
+BW_DISABLE_ICON_DOWNLOAD = "true"
