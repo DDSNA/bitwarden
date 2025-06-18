@@ -23,6 +23,6 @@ BW_MAIL_FROM = "${{secrets.BW_MAIL_FROM}}"
 
 BW_PORT = "8080"
 BW_DISABLE_ADMIN = "false"
-BW_DB_PROVIDER = "sqlite"
+BW_DB_PROVIDER = "postgres"
 BW_ENABLE_SSL = "false"
 BW_DISABLE_ICON_DOWNLOAD = "true"
