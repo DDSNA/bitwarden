@@ -1,10 +1,4 @@
-FROM ghcr.io/bitwarden/self-host
+FROM vaultwarden/server:latest
 
-ENV BW_DOMAIN=$RAILWAY_PUBLIC_DOMAIN
-
-RUN mkdir -p /data
-
-EXPOSE 8080 
-
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8080/alive || exit 1
+ENV ROCKET_ADDRESS=0.0.0.0
+ENV ROCKET_PORT=$PORT
